@@ -4,20 +4,24 @@ terraform {
       source = "hashicorp/google"
     }
 
-    provider "google-beta" {
-      project = "my-project-id"
-      region  = "us-central1"
-      zone    = "us-central1-c"
+    google-beta = {
+      source = "hashicorp/google-beta"
     }
 
     random = {
-      source = "hashicorp/google"
+      source = "hashicorp/random"
     }
   }
 }
 
 provider "google" {
-  region = var.region
+  region  = var.region
+  project = var.default_project
+}
+
+provider "google-beta" {
+  project = var.default_project
+  region  = var.region
 }
 
 resource "random_integer" "int" {
@@ -29,4 +33,9 @@ locals {
   projects_apis      = "container.googleapis.com"
   host_project_id    = "${var.host_project_name}-${random_integer.int.result}"
   service_project_id = "${var.service_project_name}-${random_integer.int.result}"
+}
+
+resource "google_compute_network" "vpc_network" {
+  name                    = "terraform-network"
+  auto_create_subnetworks = "true"
 }
