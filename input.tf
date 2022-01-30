@@ -1,13 +1,17 @@
 variable "region" {
-    type = string
+  type = string
+}
+
+variable "default_project" {
+  type = string
 }
 
 variable "org_id" {
-    type = string
+  type = string
 }
 
 variable "billing_account" {
-    type = string
+  type = string
 }
 
 variable "host_project_name" {
@@ -19,5 +23,5 @@ variable "service_project_name" {
 }
 
 variable "secondary_ip_ranges" {
-  type = map
+  type = map(any)
 }
