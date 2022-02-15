@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  terraform_plan:
+  terraform_apply:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
@@ -19,3 +19,6 @@ jobs:
       - name: Terraform validate
         id: validate
         run: terraform validate -no-color
+      # - name: Terraform apply
+      #   id: apply
+      #   run: terraform apply -auto-approve

@@ -2,10 +2,6 @@ variable "region" {
   type = string
 }
 
-variable "default_project" {
-  type = string
-}
-
 variable "org_id" {
   type = string
 }

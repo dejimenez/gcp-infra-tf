@@ -16,7 +16,7 @@ terraform {
 
 provider "google" {
   region  = var.region
-  project = var.default_project
+  credentials = file("./credentials.json")
 }
 
 provider "google-beta" {
