@@ -6,8 +6,13 @@ Learning how to configure GCP infrastructure using terraform. Create modules tha
 Install terraform cli 
 [Installation link](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
-
 ## Test locally
+To test locally follow the steps
+
+### Setup default credentials
+```
+gcloud auth application-default login
+```
 
 ### Clone the repo
 ```
@@ -28,8 +33,8 @@ terraform plan
 terraform apply
 ```
 
-### CI-CD
+## CI-CD
 The CI is build using github actions. There are two main workflows one to plan what should be done, it is trigger when creating a PR to the main branch, the other one is when pushing to main branch, in this case it will apply the changes done in the files.
 
-### Secrets 
+## Secrets 
 It is necessary to set some secrets to by able to access GCP and make the transformations there.
